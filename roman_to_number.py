@@ -11,30 +11,33 @@ def romanToInt(s):
     result = 0
     current_value = ""
     for x in s:
-        if current_value != "":
-            if romans.get(current_value) < romans.get(x):
-                result -= 2*romans.get(current_value)
-        if (x == "I"):
-            current_value = "I"
-            result += 1
-        elif x == "V":
-            current_value = "V"
-            result += 5
-        elif x == "X":
-            current_value = "X"
-            result += 10
-        elif x=="L":
-            current_value = "L"
-            result += 50
-        elif x == "C":
-            current_value = "C"
-            result += 100
-        elif x == "D":
-            current_value = "D"
-            result += 500
-        elif x == "M":
-            current_value = "M"
-            result += 1000
+        if current_value!="" and romans.get(current_value) < romans.get(x):
+            result =result+ (romans.get(x)-2*romans.get(current_value))
+        else:
+            current_value=x
+            result+=romans.get(x)
+
+        # if (x == "I"):
+        #     current_value = "I"
+        #     result += 1
+        # elif x == "V":
+        #     current_value = "V"
+        #     result += 5
+        # elif x == "X":
+        #     current_value = "X"
+        #     result += 10
+        # elif x=="L":
+        #     current_value = "L"
+        #     result += 50
+        # elif x == "C":
+        #     current_value = "C"
+        #     result += 100
+        # elif x == "D":
+        #     current_value = "D"
+        #     result += 500
+        # elif x == "M":
+        #     current_value = "M"
+        #     result += 1000
 
     return result
 if "__main__":
